@@ -3,14 +3,14 @@ import Header from "./Header"
 import { checkValidData } from '../utils/checkValidData';
 import {auth} from "../utils/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 
 
 
 const Login = () => {
-  const navigate=useNavigate();
+  
   const dispatch=useDispatch();
   
   const [isSignInForm,setIsSignInForm]=useState(true);
@@ -31,7 +31,7 @@ if(isSignInForm){
   .then((userCredentials)=>{
    
    
-    navigate("/browse");
+   
   }).catch((error)=>{
     setErrorMessage(error.code+":"+error.message)
   })
@@ -51,8 +51,8 @@ else if(!isSignInForm){
         displayName:displayName,
         photoURL:photoURL
     }));
-      
-      navigate("/browse");
+
+    
     }).catch((error) => {
      setErrorMessage(error.message);
     });
