@@ -71,12 +71,13 @@ else if(!isSignInForm){
     <div>
         <Header/>
         <div>
-          <img className='absolute'
+          <img className='absolute h-screen w-screen object-cover'
           src={BG_URL}
           alt="bg "
           />
         </div >
-        <form onSubmit={(e)=>e.preventDefault()} className='absolute bg-black  p-12 w-3/12 my-36 mx-auto right-0 left-0 text-white bg-opacity-80' >
+        <form onSubmit={(e)=>e.preventDefault()} 
+        className='absolute bg-black  p-12 w-full md:w-3/12 my-36 mx-auto right-0 left-0 text-white bg-opacity-80' >
           <h1 className='font-bold text-3xl py-4 '>{isSignInForm?"Sign In":"Sign Up"}</h1>
           {!isSignInForm&&<input ref={name} types="text" placeholder='Full Name' className='p-2 my-4 w-full bg-gray-800 border border-gray-300 rounded-sm'/>}
           <input ref={email} types="text" placeholder='Email Address' className='p-2 my-4 w-full bg-gray-800 border border-gray-300 rounded-sm'/>

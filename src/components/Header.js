@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addUser, removeUser } from '../utils/userSlice'
 import { LOGO, SUPPORTED_LANGUAGES } from '../utils/constants'
 import { toggleGptSearchView } from '../utils/gptSlice'
-import lang from '../utils/languageConstants'
 import { changeLanguage } from '../utils/configSlice'
 
 const Header = () => {
@@ -51,12 +50,12 @@ useEffect(()=>{
   return ()=>unsubscribe();
 },[])
   return (
-    <div className='absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between '>
-        <img className='w-44' 
+    <div className='absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between'>
+        <img className='w-44 mx-auto md:mx-0'  
         alt="logo" 
         src={LOGO}/>
         {user&&
-        <div className='flex items-center'>
+        <div className='flex p-2 justify-between'>
           {showGptSearch&&
           <select
           onChange={handleLanguageChange}
@@ -75,7 +74,7 @@ useEffect(()=>{
           <img
           src={user?.photoURL}
           alt="userIcon"
-          className='mx-1 w-10'
+          className='mx-1 w-10 hidden md:block'
           />
           <button className='text-white' onClick={handleSignOut}>Sign Out</button>
         </div>}
